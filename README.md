@@ -14,8 +14,10 @@ The sprint meter stays full. While you are using a battery flashlight, its charg
 Requires [Lethal Company](https://store.steampowered.com/app/1966720/Lethal_Company/) installed (auto-detected under common Steam paths), or set `LETHAL_COMPANY_GAME_DIR` / `-p:LethalCompanyGameRootDir=`.
 
 ```bash
-dotnet build HubertsToolkit.slnx -c Release
+dotnet build src/HubertsToolkit/HubertsToolkit.csproj -c Release
 ```
+
+`HubertsToolkit.slnx` is for Visual Studio. The `dotnet` CLI can build that file with the .NET 9 SDK or newer. .NET 8 stops on it (`MSB4068`, unrecognized `<Solution>`). The project file builds on .NET 8 and newer, which is what CI uses.
 
 Optional deploy: `-p:DeployToLethalCompany=true -p:LethalCompanyPluginsDir="/path/to/BepInEx/plugins/HubertsToolkit"`  
 Optional overrides: copy `Config.Build.user.props.example` → `Config.Build.user.props` (gitignored).
@@ -37,7 +39,7 @@ The package namespace in `src/HubertsToolkit/thunderstore.toml` is `urbecks`. Ch
 
 ```bash
 ./build.sh
-# or: dotnet build HubertsToolkit.slnx -c Release -target:PackTS
+# or: dotnet build src/HubertsToolkit/HubertsToolkit.csproj -c Release -target:PackTS
 # zip lands in artifacts/thunderstore/
 ```
 

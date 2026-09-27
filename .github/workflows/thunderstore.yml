@@ -37,7 +37,8 @@ jobs:
         run: |
           set -euo pipefail
           MANAGED_DIR="$PWD/.gamelibs"
-          dotnet build HubertsToolkit.slnx -c Release -target:PackTS -v m \
+          # Build the csproj. .NET 8 does not understand HubertsToolkit.slnx.
+          dotnet build src/HubertsToolkit/HubertsToolkit.csproj -c Release -target:PackTS -v m \
             -p:ManagedDir="$MANAGED_DIR/" \
             -p:LethalCompanyGameRootDir=""
 
@@ -120,7 +121,7 @@ jobs:
             exit 1
           fi
           MANAGED_DIR="$PWD/.gamelibs"
-          dotnet build HubertsToolkit.slnx -c Release -target:PackTS -v m \
+          dotnet build src/HubertsToolkit/HubertsToolkit.csproj -c Release -target:PackTS -v m \
             -p:ManagedDir="$MANAGED_DIR/" \
             -p:LethalCompanyGameRootDir="" \
             -p:PublishTS=true

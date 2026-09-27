@@ -1,3 +1,3 @@
 #!/bin/sh
 
-dotnet build HubertsToolkit.slnx -c Release -target:PackTS -v d
+dotnet build src/HubertsToolkit/HubertsToolkit.csproj -c Release -target:PackTS -v d
