@@ -232,6 +232,12 @@ Config.Build.user.props
 .DS_Store
 Thumbs.db
 
+# Rider
+.idea/
+
+# Stripped game assemblies downloaded for CI-style builds
 .gamelibs/
 .gamelibs-nupkg/
-lethalapi.gamelibs.nupkg
+
+# Unpacked Thunderstore zip from a local CI dry run
+ts-artifact/
