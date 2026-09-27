@@ -1,0 +1,39 @@
+[config]
+schemaVersion = "0.1.0"
+
+[general]
+repository = "https://thunderstore.io"
+
+[package]
+namespace = "urbecks"
+name = "HubertsToolkit"
+description = "Infinite sprint and a flashlight battery that does not drain."
+websiteUrl = "https://github.com/urbecks/HubertsToolkit"
+containsNsfwContent = false
+
+[package.dependencies]
+BepInEx-BepInExPack = "5.4.2305"
+
+[build]
+icon = "../../icon.png"
+readme = "../../README.md"
+outdir = "../../artifacts/thunderstore/"
+
+[[build.copy]]
+source = "../../artifacts/bin/HubertsToolkit/release/HubertsToolkit.dll"
+target = "plugins/"
+
+[[build.copy]]
+source = "../../CHANGELOG.md"
+target = "/"
+
+[[build.copy]]
+source = "../../LICENSE"
+target = "/"
+
+[publish]
+communities = [ "lethal-company", ]
+
+# Fallback for a first publish. CI replaces this with the live package categories.
+[publish.categories]
+lethal-company = [ "mods", "clientside", "tweaks-and-quality-of-life", "bepinex" ]

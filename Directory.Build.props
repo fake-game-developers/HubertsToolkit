@@ -1,0 +1,46 @@
+<Project>
+  <!--
+    Shared configuration for all projects in this repo.
+    Optional local overrides: copy Config.Build.user.props.example → Config.Build.user.props (gitignored).
+  -->
+
+  <Import
+    Project="$(MSBuildThisFileDirectory)Config.Build.user.props"
+    Condition="Exists('$(MSBuildThisFileDirectory)Config.Build.user.props')"
+  />
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
+
+    <!-- Prefer an explicit property, then LETHAL_COMPANY_GAME_DIR env var. -->
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and '$(LETHAL_COMPANY_GAME_DIR)' != ''">$(LETHAL_COMPANY_GAME_DIR)</LethalCompanyGameRootDir>
+
+    <!-- Common Steam install locations (first existing wins). -->
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('$(MSBuildProgramFiles32)Steam\steamapps\common\Lethal Company\Lethal Company.exe')">$(MSBuildProgramFiles32)Steam\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company.exe')">C:\Program Files (x86)\Steam\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('D:\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company.exe')">D:\Program Files (x86)\Steam\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company.exe')">D:\SteamLibrary\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('E:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company.exe')">E:\SteamLibrary\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('$(HOME)/.local/share/Steam/steamapps/common/Lethal Company/Lethal Company.exe')">$(HOME)/.local/share/Steam/steamapps/common/Lethal Company/</LethalCompanyGameRootDir>
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' == '' and Exists('$(HOME)/.steam/steam/steamapps/common/Lethal Company/Lethal Company.exe')">$(HOME)/.steam/steam/steamapps/common/Lethal Company/</LethalCompanyGameRootDir>
+
+    <LethalCompanyGameRootDir Condition="'$(LethalCompanyGameRootDir)' != ''">$([MSBuild]::EnsureTrailingSlash($(LethalCompanyGameRootDir)))</LethalCompanyGameRootDir>
+    <!-- Allow CI to pass ManagedDir directly (e.g. stripped LethalAPI.GameLibs). -->
+    <ManagedDir Condition="'$(ManagedDir)' == '' and '$(LethalCompanyGameRootDir)' != ''">$(LethalCompanyGameRootDir)Lethal Company_Data\Managed\</ManagedDir>
+
+    <!-- Default plugins path is unused unless DeployToLethalCompany=true -->
+    <LethalCompanyPluginsDir Condition="'$(LethalCompanyPluginsDir)' == '' and '$(LethalCompanyGameRootDir)' != ''">$(LethalCompanyGameRootDir)BepInEx\plugins\HubertsToolkit\</LethalCompanyPluginsDir>
+  </PropertyGroup>
+</Project>

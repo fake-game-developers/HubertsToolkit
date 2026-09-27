@@ -1,0 +1,15 @@
+<Project>
+  <!--
+    Optional local overrides. Copy this file to Config.Build.user.props (gitignored).
+
+    Example (Windows):
+      <LethalCompanyGameRootDir>D:\SteamLibrary\steamapps\common\Lethal Company\</LethalCompanyGameRootDir>
+      <DeployToLethalCompany>true</DeployToLethalCompany>
+      <LethalCompanyPluginsDir>C:\path\to\BepInEx\plugins\HubertsToolkit\</LethalCompanyPluginsDir>
+  -->
+  <PropertyGroup>
+    <!-- <LethalCompanyGameRootDir></LethalCompanyGameRootDir> -->
+    <!-- <DeployToLethalCompany>true</DeployToLethalCompany> -->
+    <!-- <LethalCompanyPluginsDir></LethalCompanyPluginsDir> -->
+  </PropertyGroup>
+</Project>

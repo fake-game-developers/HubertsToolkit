@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AssemblyName>HubertsToolkit</AssemblyName>
+		<AssemblyTitle>Lethal Company - Hubert's Toolkit</AssemblyTitle>
+		<Authors>urbecks</Authors>
+		<Company>urbecks</Company>
+		<Copyright>Copyright (c) 2024 urbecks</Copyright>
+		<Description>Infinite sprint and a flashlight battery that does not drain.</Description>
+		<Version>1.0.1</Version>
+		<RootNamespace>HubertsToolkit</RootNamespace>
+		<ThunderstorePackable>true</ThunderstorePackable>
+	</PropertyGroup>
+
+</Project>

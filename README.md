@@ -1,0 +1,50 @@
+# Hubert's Toolkit
+
+Infinite sprint and a flashlight battery that does not drain, for Lethal Company.
+
+The sprint meter stays full. While you are using a battery flashlight, its charge is filled back in after the game drains it.
+
+## Install
+
+1. Use r2modman / Gale with [BepInExPack](https://thunderstore.io/c/lethal-company/p/BepInEx/BepInExPack/) for Lethal Company, **or** drop the built DLL into `BepInEx/plugins/`.
+2. Launch Lethal Company from the mod manager.
+
+## Build
+
+Requires [Lethal Company](https://store.steampowered.com/app/1966720/Lethal_Company/) installed (auto-detected under common Steam paths), or set `LETHAL_COMPANY_GAME_DIR` / `-p:LethalCompanyGameRootDir=`.
+
+```bash
+dotnet build HubertsToolkit.slnx -c Release
+```
+
+Optional deploy: `-p:DeployToLethalCompany=true -p:LethalCompanyPluginsDir="/path/to/BepInEx/plugins/HubertsToolkit"`  
+Optional overrides: copy `Config.Build.user.props.example` → `Config.Build.user.props` (gitignored).
+
+The DLL is `artifacts/bin/HubertsToolkit/release/HubertsToolkit.dll`.
+
+## Thunderstore packaging (CI)
+
+Every push to `master` runs [.github/workflows/thunderstore.yml](.github/workflows/thunderstore.yml):
+
+1. Builds a Thunderstore ZIP (using stripped [LethalAPI.GameLibs](https://www.nuget.org/packages/LethalAPI.GameLibs) for compile references)
+2. Uploads a workflow artifact named **`urbecks-HubertsToolkit`**
+
+Every push still builds that zip. Thunderstore publish runs only when `<Version>` in `src/HubertsToolkit/HubertsToolkit.csproj` changes, and the repository secret `TCLI_AUTH_TOKEN` is set. The publish step copies the categories already on the package, so a new version keeps the same tags. A commit that leaves the version unchanged only builds the artifact.
+
+The package namespace in `src/HubertsToolkit/thunderstore.toml` is `urbecks`. Change that to your Thunderstore namespace before the first publish.
+
+### Local package build
+
+```bash
+./build.sh
+# or: dotnet build HubertsToolkit.slnx -c Release -target:PackTS
+# zip lands in artifacts/thunderstore/
+```
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2024 urbecks.
+
+## Credits
+
+- Original author: **urbecks**
