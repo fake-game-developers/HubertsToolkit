@@ -3,12 +3,12 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<AssemblyName>HubertsToolkit</AssemblyName>
-		<AssemblyTitle>Lethal Company - Hubert's Toolkit</AssemblyTitle>
+		<AssemblyTitle>Hubert's Toolkit</AssemblyTitle>
 		<Authors>Fake Game Developers</Authors>
 		<Company>Fake Game Developers</Company>
 		<Copyright>Copyright (c) 2026 Fake Game Developers</Copyright>
 		<Description>Infinite sprint and a flashlight battery that does not drain.</Description>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<RootNamespace>HubertsToolkit</RootNamespace>
 		<ThunderstorePackable>true</ThunderstorePackable>
 	</PropertyGroup>

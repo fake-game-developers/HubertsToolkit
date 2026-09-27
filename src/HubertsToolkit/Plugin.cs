@@ -5,7 +5,7 @@ using HarmonyLib;
 
 namespace HubertsToolkit;
 
-[BepInAutoPlugin(id: "Huberts.Toolkit", name: "Lethal Company - Hubert's Toolkit")]
+[BepInAutoPlugin(id: "Huberts.Toolkit", name: "Hubert's Toolkit")]
 public partial class Plugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log { get; private set; } = null!;

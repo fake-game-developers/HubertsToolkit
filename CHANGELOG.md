@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Name the plugin Hubert's Toolkit
+
 ## 1.0.2
 
 - Give the Thunderstore page its own readme, without build instructions
