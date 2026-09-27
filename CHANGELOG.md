@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Give the Thunderstore page its own readme, without build instructions
+
 ## 1.0.1
 
 - Keep the sprint meter full
