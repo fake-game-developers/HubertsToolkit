@@ -47,8 +47,6 @@ The DLL is `artifacts/bin/HubertsToolkit/release/HubertsToolkit.dll`.
 
 ## Thunderstore packaging (CI)
 
-The Thunderstore page uses [src/HubertsToolkit/README.md](src/HubertsToolkit/README.md). This file is for the repository.
-
 Every push to `master` runs [.github/workflows/thunderstore.yml](.github/workflows/thunderstore.yml):
 
 1. Builds a Thunderstore ZIP (using stripped [LethalAPI.GameLibs](https://www.nuget.org/packages/LethalAPI.GameLibs) for compile references)
