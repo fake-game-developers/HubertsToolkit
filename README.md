@@ -22,6 +22,14 @@ Set either key to `false` to leave that part of the game vanilla. Both are on un
 1. Use r2modman / Gale with [BepInExPack](https://thunderstore.io/c/lethal-company/p/BepInEx/BepInExPack/) for Lethal Company, **or** drop the built DLL into `BepInEx/plugins/`.
 2. Launch Lethal Company from the mod manager.
 
+Linux runs the Windows build under Proton. Proton skips BepInEx's `winhttp.dll`, so the plugin never loads. For a manual install, set the Steam launch options to:
+
+```text
+WINEDLLOVERRIDES="winhttp=n,b" %command%
+```
+
+r2modman and Gale usually set that override themselves. The BepInEx console often stays hidden on Proton. `BepInEx/LogOutput.log` should contain `Huberts.Toolkit has loaded successfully.`
+
 ## Build
 
 Requires [Lethal Company](https://store.steampowered.com/app/1966720/Lethal_Company/) installed (auto-detected under common Steam paths), or set `LETHAL_COMPANY_GAME_DIR` / `-p:LethalCompanyGameRootDir=`.
