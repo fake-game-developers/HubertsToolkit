@@ -5,10 +5,10 @@ schemaVersion = "0.1.0"
 repository = "https://thunderstore.io"
 
 [package]
-namespace = "urbecks"
+namespace = "FakeGameDevelopers"
 name = "HubertsToolkit"
 description = "Infinite sprint and a flashlight battery that does not drain."
-websiteUrl = "https://github.com/urbecks/HubertsToolkit"
+websiteUrl = "https://github.com/fake-game-developers/HubertsToolkit"
 containsNsfwContent = false
 
 [package.dependencies]

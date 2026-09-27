@@ -50,11 +50,9 @@ The DLL is `artifacts/bin/HubertsToolkit/release/HubertsToolkit.dll`.
 Every push to `master` runs [.github/workflows/thunderstore.yml](.github/workflows/thunderstore.yml):
 
 1. Builds a Thunderstore ZIP (using stripped [LethalAPI.GameLibs](https://www.nuget.org/packages/LethalAPI.GameLibs) for compile references)
-2. Uploads a workflow artifact named **`urbecks-HubertsToolkit`**
+2. Uploads a workflow artifact named **`FakeGameDevelopers-HubertsToolkit`**
 
-Every push still builds that zip. Thunderstore publish runs only when `<Version>` in `src/HubertsToolkit/HubertsToolkit.csproj` changes, and the repository secret `TCLI_AUTH_TOKEN` is set. The publish step copies the categories already on the package, so a new version keeps the same tags. A commit that leaves the version unchanged only builds the artifact.
-
-The package namespace in `src/HubertsToolkit/thunderstore.toml` is `urbecks`. Change that to your Thunderstore namespace before the first publish.
+Every push still builds that zip. Thunderstore publish runs only when `<Version>` in `src/HubertsToolkit/HubertsToolkit.csproj` changes, and the organization secret `TCLI_AUTH_TOKEN` is set. The publish step copies the categories already on the package, so a new version keeps the same tags. A commit that leaves the version unchanged only builds the artifact.
 
 ### Local package build
 
@@ -66,8 +64,11 @@ The package namespace in `src/HubertsToolkit/thunderstore.toml` is `urbecks`. Ch
 
 ## License
 
-[MIT](LICENSE). Copyright (c) 2024 urbecks.
+[MIT with attribution](LICENSE). Copyright (c) 2026 Fake Game Developers.
 
 ## Credits
 
 - Original author: **urbecks**
+- This mod belongs to **Fake Game Developers**
+
+Work based on this mod must credit urbecks and Fake Game Developers. See [LICENSE](LICENSE).

@@ -58,8 +58,8 @@ jobs:
       - name: Upload Thunderstore-ready artifact
         uses: actions/upload-artifact@v4
         with:
-          # Downloaded filename will be urbecks-HubertsToolkit.zip — upload that to Thunderstore.
-          name: urbecks-HubertsToolkit
+          # Downloaded filename will be FakeGameDevelopers-HubertsToolkit.zip — upload that to Thunderstore.
+          name: FakeGameDevelopers-HubertsToolkit
           path: ts-artifact/*
           if-no-files-found: error
 
@@ -94,7 +94,7 @@ jobs:
           fi
 
           if [ "$changed" = true ]; then
-            live=$(curl -fsSL -A "HubertsToolkit" "https://thunderstore.io/api/experimental/package/urbecks/HubertsToolkit/" \
+            live=$(curl -fsSL -A "HubertsToolkit" "https://thunderstore.io/api/experimental/package/FakeGameDevelopers/HubertsToolkit/" \
               | python3 -c 'import json,sys; print(json.load(sys.stdin)["latest"]["version_number"])' \
               || true)
             if [ -n "$live" ] && [ "$version" = "$live" ]; then
