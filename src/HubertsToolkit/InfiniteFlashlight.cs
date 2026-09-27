@@ -4,11 +4,16 @@ using UnityEngine;
 namespace HubertsToolkit;
 
 [HarmonyPatch(typeof(FlashlightItem), "Update")]
-internal static class InfiniteFlashlight
+internal static class InfiniteFlashlightPatch
 {
     [HarmonyPostfix]
     private static void Postfix(FlashlightItem __instance)
     {
+        if (!Plugin.InfiniteFlashlight.Value)
+        {
+            return;
+        }
+
         if (__instance == null || !__instance.IsOwner || !__instance.isBeingUsed)
         {
             return;
