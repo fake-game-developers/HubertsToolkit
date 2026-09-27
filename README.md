@@ -68,6 +68,7 @@ Every push still builds that zip. Thunderstore publish runs only when `<Version>
 
 ## Credits
 
+- Originally from [urbecks/HubertsToolkit](https://github.com/urbecks/HubertsToolkit)
 - Original author: **urbecks**
 - This mod belongs to **Fake Game Developers**
 
